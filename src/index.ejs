@@ -49,13 +49,12 @@
   <script type="systemjs-importmap">
     {
       "imports": {
-        "@single-spa/welcome": "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js",
-        "@pacificoseguros/styleguide": "http://localhost:8082/pacificoseguros-spotify-styleguide.js",
-        "@pacificoseguros/root-config": "//localhost:9000/pacificoseguros-root-config.js",
-        "@pacificoseguros/login": "http://localhost:8080/pacificoseguros-spotify-login.js",
-        "@pacificoseguros/home": "http://localhost:8081/pacificoseguros-spotify-player.js",
-        "@pacificoseguros/sidebar": "http://localhost:8083/pacificoseguros-spotify-sidebar.js",
-        "@pacificoseguros/search": "http://localhost:8084/pacificoseguros-spotify-search.js"
+        "@ps/styleguide": "http://localhost:8082/pacificoseguros-spotify-styleguide.js",
+        "@ps/root-config": "//localhost:9000/pacificoseguros-root-config.js",
+        "@ps/login": "http://localhost:8080/pacificoseguros-spotify-login.js",
+        "@ps/home": "http://localhost:8081/pacificoseguros-spotify-player.js",
+        "@ps/sidebar": "http://localhost:8083/pacificoseguros-spotify-sidebar.js",
+        "@ps/search": "http://localhost:8084/pacificoseguros-spotify-search.js"
       }
     }
   </script>
@@ -79,19 +78,19 @@
   <template id="single-spa-layout">
     <single-spa-router>
         <route default>
-          <application name="@pacificoseguros/login"></application>
+          <application name="@ps/login"></application>
         </route>
         <route path="home">
           <div id="root">
             <sidebar>
-              <application name="@pacificoseguros/sidebar"></application>
+              <application name="@ps/sidebar"></application>
             </sidebar>
             <main>
               <route path="player">
-                <application name="@pacificoseguros/home"></application>
+                <application name="@ps/home"></application>
               </route>
               <route path="search">
-                <application name="@pacificoseguros/search"></application>
+                <application name="@ps/search"></application>
               </route>
               <route default>
                 <h1>404 Not Found subpage</h1>
@@ -107,7 +106,8 @@
 </head>
 <body>
   <script>
-    System.import('@pacificoseguros/root-config');
+    System.import('@ps/root-config');
+   
   </script>
   <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
 </body>
